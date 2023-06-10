@@ -7,7 +7,7 @@
     <span class="title-perleo" >Profil</span>
   </div>
 
-  <div class="base-layout">
+  <div class="base-layout-profil">
     <div class="window-profile">
       <div class="scrollspy-container">
         <div class="scrollspy-items">
@@ -19,8 +19,34 @@
     </div>
   </div>
   <div class="base-layout-articles">
-    sd
+    <div class="article-profil">
+      @foreach($articles as $article)
+        <div class="article-profile-scrollable">
+          <div class="article-profil-line">
+            <div class="article-profil-card">
+              <img src="./img/articles/{{$article->depot}}" class="article-profil-art-img"/>
+                <a href="/login" class="poubelle-icon"></a>
+              <p class="article-profil-title"> {{$article->titre_article}} </p>
+            </div>
+          </div>
+        </div> 
+      @endforeach
+      <!-- Button trigger modal -->
+    </div>
   </div>
+  @foreach($articles as $article)
+  <p>test</p> 
+  @endforeach
+  
+</div>
+
+
+
+
+
+
+
+
 
 
 </x-content-layout>

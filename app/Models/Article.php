@@ -18,9 +18,10 @@ class Article extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'id_article',
         'titre_article',
         'contenu_article',
         'id_categorie',
-        'id_users'
+        'id'
     ];
 }

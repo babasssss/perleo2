@@ -37,6 +37,7 @@ Route::get('/ma-carte',[MaCarteController::class,'index'])->middleware(['auth', 
 Route::get('/mon-compte',[MonProfilController::class,'index'])->middleware(['auth', 'verified'])->name('mon-compte');
 
 
+
 Route::get('/like/{id_article}/{id_user}',[AimerController::class,'index'])->middleware(['auth', 'verified'])->name('like');
 Route::get('/like_event/{code}/{id_user}',[AimerController::class,'indexEvent'])->middleware(['auth', 'verified'])->name('like_event');
 

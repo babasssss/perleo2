@@ -1977,10 +1977,19 @@ section {
 .base-layout{
   top: -20px;
   display: flex;
+  align-items: center; /* Centrer verticalement */
+  justify-content: center; /* Centrer horizontalement */
+  height: 100vh;
+}
+
+.base-layout-profil{
+  top: -20px;
+  display: flex;
   align-items: flex-end; /* Centrer verticalement */
   justify-content: center; /* Centrer horizontalement */
   height: 37vh;
 }
+
 
 .base-layout-articles{
   top: 1rem;
@@ -2268,4 +2277,113 @@ section {
 .section {
   height: 100vh;
   width: 100%;
+}
+
+
+
+.article-profil {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* Ajout de la propriété flex-wrap */
+  align-items: center;
+  padding: 24px 16px;
+  gap: 16px;
+  overflow-y: scroll;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.15);
+  border-radius: 0px 0px 20px 20px;
+  max-height: 426px; /* Hauteur maximale pour 2 lignes */
+}
+
+
+.article-profile-scrollable{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 16px;
+}
+
+.article-profil-line{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 16px;
+}
+
+.article-profil-card{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 16px;
+  isolation: isolate;
+  
+  width: 154.5px;
+  height: 213px;
+}
+
+.article-profil-art-img{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 8px;
+  gap: 10px;
+  isolation: isolate;
+
+  width: 154.5px;
+  height: 173px;
+
+  background: #FFFFFF;
+
+  border: 3px solid #3574F2;
+
+  box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.article-profil-title{
+  width: 154.5px;
+  height: 24px;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  display: flex;
+  align-items: flex-end;
+
+  /* grey/500 */
+
+  color: #141216;
+}
+
+.article-profil-icon{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0px;
+  gap: 32px;
+
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  right: 7.5px;
+  top: 8px;
+}
+
+.poubelle-icon{
+  position: absolute;
+  top: 10px; /* Ajustez la position verticale selon vos besoins */
+  right: 10px; /* Ajustez la position horizontale selon vos besoins */
+  width: 50px; /* Ajustez la taille de l'icône de cœur selon vos besoins */
+  height: 50px;
+  background-image: url('../img/articles/poubelle-icon.png'); /* Remplacez par votre image d'icône de cœur vide */
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
 }

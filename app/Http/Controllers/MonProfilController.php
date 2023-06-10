@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\DB;
 class MonProfilController extends Controller
 {
     public function index(){
-      return view('MonProfil');
+
+      $articles = DB::table('article')
+            ->join('image','article.id_article','=', 'image.id_article')
+            ->select('article.*','image.*')
+            ->where('article.id','=', Auth::user()->id) 
+            ->get();
+        // dd($articles);
+
+      return view('MonProfil',['articles'=>$articles]);
     }
 }
