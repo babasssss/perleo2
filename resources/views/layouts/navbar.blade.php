@@ -12,8 +12,8 @@
       @if (Route::has('login'))
             @auth
                 <li><a style="color:black;" class="nav-link scrollto" href="{{ url('/') }}">Accueil</a></li>
-                <li><a style="color:black;" class="nav-link scrollto" href="#">Favoris</a></li>
-                <li><a  style="color:black;"class="nav-link scrollto" href="{{ url('/ma-carte') }}">Ma carte perleo</a></li>
+                <li><a style="color:black;" class="nav-link scrollto" href="{{ url('/favoris') }}">Favoris</a></li>
+                <li><a style="color:black;"class="nav-link scrollto" href="{{ url('/ma-carte') }}">Ma carte perleo</a></li>
                 <li class="dropdown"><a style="color:black;" class="nav-link " ><span>Mon profil </span> <i class="bi bi-chevron-down"></i></a>
                   <ul>
                     <li>

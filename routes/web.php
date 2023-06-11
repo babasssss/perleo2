@@ -3,6 +3,7 @@
 use App\Http\Controllers\AimerController;
 use App\Http\Controllers\DasboardController;
 use App\Http\Controllers\EvenementController;
+use App\Http\Controllers\FavorisController;
 use App\Http\Controllers\MaCarteController;
 use App\Http\Controllers\MonProfilController;
 use App\Http\Controllers\ProfileController;
@@ -19,29 +20,38 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('accueil');
-});
 
-Route::get('/test', function () {
-    return view('test');
-});
+// Route::get('/test', function () {
+//     return view('test');
+// });
 
-Route::get('/accueil', function () {
-    return view('accueil');
-});
+// Route::get('/accueil', function () {
+//     return view('accueil');
+// });
 
 Route::get('/',[DasboardController::class,'index'])->name('accueil');
 Route::get('/ma-carte',[MaCarteController::class,'index'])->middleware(['auth', 'verified'])->name('ma-carte');
 
+
 Route::get('/mon-compte',[MonProfilController::class,'index'])->middleware(['auth', 'verified'])->name('mon-compte');
 
+Route::delete('article/{id}', [MonProfilController::class, 'delete'])->middleware(['auth', 'verified'])->name('mon-compte.delete');
+Route::delete('evenementProfil/{id}', [MonProfilController::class, 'deleteEvenement'])->middleware(['auth', 'verified'])->name('mon-compte.deleteEvenement');
 
 
 Route::get('/like/{id_article}/{id_user}',[AimerController::class,'index'])->middleware(['auth', 'verified'])->name('like');
 Route::get('/like_event/{code}/{id_user}',[AimerController::class,'indexEvent'])->middleware(['auth', 'verified'])->name('like_event');
 
 Route::get('/evenement/{nom}',[EvenementController::class,'index'])->middleware(['auth', 'verified'])->name('like');
+
+
+Route::get('/favoris',[FavorisController::class,'index'])->middleware(['auth', 'verified'])->name('favoris');
+
+
+
+
+
+
 
 Route::get('/dashboard', function () {
     return view('accueil');

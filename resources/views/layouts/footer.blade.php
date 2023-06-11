@@ -70,7 +70,14 @@
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
+    <a href="https://netflix.com"  class="back-to-top d-flex align-items-center justify-content-center">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M31.6666 21.6668H21.6666V31.6668H18.3333V21.6668H8.33325V18.3335H18.3333V8.3335H21.6666V18.3335H31.6666V21.6668Z" fill="white"/>
+      </svg>
+    </a>
   </footer><!-- End Footer -->
-
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="https://netflix.com" class="back-to-top d-flex align-items-center justify-content-center">
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M31.6666 21.6668H21.6666V31.6668H18.3333V21.6668H8.33325V18.3335H18.3333V8.3335H21.6666V18.3335H31.6666V21.6668Z" fill="white"/>
+    </svg>
+  </a>

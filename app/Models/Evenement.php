@@ -21,6 +21,7 @@ class Evenement extends Model
     protected $fillable = [
         'code',
         'nom',
+        'slug',
         'date',
         'lieux'
     ];

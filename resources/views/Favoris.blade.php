@@ -42,19 +42,16 @@
     <x-redirection text="Accueil" href="/" />
   </div>
   <div class="bg-title-perleo">
-    <span class="title-perleo" >Profil</span>
+    <span class="title-perleo" >Favoris</span>
   </div>
 
   <div class="base-layout-profil mt-4">
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link active custom-link" id="articles-tab" data-toggle="tab" href="#articles-content">Mes articles</a>
+        <a class="nav-link active custom-link" id="articles-tab" data-toggle="tab" href="#articles-content">Articles</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link custom-link" id="events-tab" data-toggle="tab" href="#events-content">Mes évènements</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link custom-link" id="settings-tab" data-toggle="tab" href="#settings-content">Paramètres</a>
+        <a class="nav-link custom-link" id="events-tab" data-toggle="tab" href="#events-content">Evènements</a>
       </li>
     </ul>
   </div>
@@ -161,7 +158,7 @@
 
                     <div class="modal-footer">
                       <button type="button" class="close-modal" data-dismiss="modal">J'annule</button>
-                      <form action="{{ route('mon-compte.deleteEvenement', ['id' => $evenement->code]) }}" method="POST">
+                      <form action="{{ route('mon-compte.delete', ['id' => $article->id_article]) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="valide-modal">Je me désinscris</button>
@@ -177,54 +174,6 @@
         </div>
       </div>
       <!-- ---------------------- Fin évènements ------------------------>
-    </div>
-    <div class="tab-pane fade" id="settings-content">
-      <!-- ---------------------- Début Paramètre  ------------------------>
-      <div class="base-layout-articles">
-        @if($users->isEmpty())
-          <p class="mon-compte-null">Un incident s'est produit. Veuillez réessayer ultérieurement. Si le problème persiste, n'hésitez pas à nous contacter. </p>
-        @else
-          @foreach($users as $user)
-            <div class="bg-qrCode">
-              <h2>Mes coordonées</h2>
-              <div class="info-qrCode">
-                <div class="info-user-qrCode">
-                  <span class="info-user-titre-qrCode">
-                    {{ strtoupper($user->name) }} {{ ucfirst(strtolower($user->firstName)) }}
-                  </span>
-                  <div class="info-user-inscrit-qrCode">
-                    <p>{{ strtolower($user->email) }}</p>
-                    <div class="info-user-abonnement-qrCode">
-                      <span style="font-weight: 700;">Abonnement : </span>
-                      <span style="font-weight: 400;">
-                        @if($user->abonnement == 1)
-                          Annuel
-                        @elseif($user->abonnement == 2)
-                          Mensuel 
-                        @elseif($user->abonnement == 3)
-                          Ponctuel
-                        @endif
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <img src="./img/perle/{{$user->photo_profil}}" class="user-photo-qrCode" />
-              </div>
-              <div class="info-user-credit-qrCode">
-                <!-- Déconnexion -->
-                <form style="color:black;" method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <a class="valide-modal" href="route('logout')" 
-                        onclick="event.preventDefault(); this.closest('form').submit();">
-                      Déconnexion
-                    </a>
-                </form>
-              </div>
-            </div>
-          @endforeach
-        @endif
-      </div>
-      <!-- ---------------------- FIN paramètre  ------------------------>
     </div>
   </div>
 

@@ -38,17 +38,24 @@ h6 {
 --------------------------------------------------------------*/
 .back-to-top {
   position: fixed;
-  visibility: hidden;
-  opacity: 0;
+  visibility: visible;
+  opacity: 1;
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #3574F2;
   width: 40px;
   height: 40px;
-  border-radius: 4px;
+  background: #5827B4;
+  border-radius: 15px;
   transition: all 0.4s;
+  padding: 3px;
 }
+
+.back-to-top.active {
+  visibility: hidden;
+  opacity: 0;
+}
+
 
 .back-to-top i {
   font-size: 24px;
@@ -57,14 +64,11 @@ h6 {
 }
 
 .back-to-top:hover {
-  background: #ff6a40;
-  color: #fff;
+  background: #3574F2;
+  color: #5827B4;
 }
 
-.back-to-top.active {
-  visibility: visible;
-  opacity: 1;
-}
+
 
 /*--------------------------------------------------------------
 # Preloader
@@ -2386,4 +2390,222 @@ section {
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
+}
+
+.titre-modal{
+  width: auto ;
+  min-height: 56px;
+
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 650;
+  font-size: 28px;
+  line-height: 28px;
+  padding: 16px 16px 16px 16px;
+  
+  color: #000000;
+}
+.close-modal{
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 12px 24px;
+  gap: 10px;
+
+  width: auto;
+  height: 47px;
+
+  /* secondary/300 */
+
+  border: 1px solid #39B54A;
+  border-radius: 15px;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #21732C;
+}
+
+.valide-modal{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 12px 24px;
+  gap: 10px;
+
+  width: auto;
+  height: 47px;
+
+  /* primary/300 */
+  border: 1px solid #3574F2;;
+
+  background: #3574F2;
+  border-radius: 15px;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FFFFFF;
+}
+.error-notification {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  z-index: 9999;
+  display: none;
+}
+
+.error-notification ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.error-notification li {
+  margin-bottom: 5px;
+}
+
+.success-notification {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #39B54A;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  z-index: 9999;
+  display: none;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+
+.nav-link:not(.active) {
+  color: #39B54A;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.mon-compte-null{
+  justify-content: center;
+  align-items: center;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #3574F2;
+}
+
+.line-profil{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 16px;
+  width: 325px;
+  height: 237px;
+  margin-bottom: 1rem;
+}
+
+.card-evenement-profil{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 16px;
+  width: 325px;
+  height: 237px;
+}
+
+.img-evenement-profil{
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 8px;
+  isolation: isolate;
+
+  width: 325px;
+  height: 173px;
+
+  /* grey/white */
+
+  background: #FFFFFF;
+  /* primary/300 */
+
+  border: 3px solid #3574F2;
+  /* elevation */
+
+  box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.card-description-evenement-profil{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  width: 325px;
+  height: 48px;
+}
+
+.title-evenement-profil{
+  width: 325px;
+  height: 24px;
+  
+  /* card-title */
+  
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  display: flex;
+  align-items: flex-end;
+  
+  /* grey/500 */
+  
+  color: #141216;
+}
+.date-evenement-profil{
+  width: 325px;
+  height: 24px;
+
+  /* Body/small */
+
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  display: flex;
+  align-items: flex-end;
+
+  /* grey/300 */
+
+  color: #595463;
+}
+
+.sous-titre-modal-evenement{
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #000000;
 }
