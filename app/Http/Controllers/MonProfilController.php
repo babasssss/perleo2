@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\_Aimer;
+use App\Models\Aimer;
 use App\Models\Article;
 use App\Models\Effectuer;
 use App\Models\Evenement;
@@ -63,7 +65,32 @@ class MonProfilController extends Controller
       }
 
       return redirect()->route('mon-compte')->with('success', 'Vous n\'êtes plus associés à cet évènement.');
-  }
+    }
+    public function dislikeArticle($id)
+    {
+      $deletedRows = Aimer::where('id_article', $id)
+          ->where('id', Auth::user()->id)
+          ->delete();
 
+      if ($deletedRows === 0) {
+          // La suppression n'a pas eu lieu, retourner une erreur
+          return redirect()->back()->withErrors('Erreur lors de la suppression de l\'article.');
+      }
+
+      return redirect()->route('favoris')->with('success', 'Vous n\'aimez plus l\'article.');
+    }
+    public function dislikeEvenement($id)
+    {
+      $deletedRows = _Aimer::where('code', $id)
+          ->where('id', Auth::user()->id)
+          ->delete();
+
+      if ($deletedRows === 0) {
+          // La suppression n'a pas eu lieu, retourner une erreur
+          return redirect()->back()->withErrors('Erreur lors de la suppression de l\'evenements.');
+      }
+
+      return redirect()->route('favoris')->with('success', 'Vous n\'aimez plus l\'evenement.');
+    }
 
 }

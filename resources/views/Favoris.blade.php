@@ -73,23 +73,23 @@
     <div class="tab-pane fade show active" id="articles-content">
       <div class="base-layout-articles">
         <div class="article-profil">
-        @if($articles->isEmpty())
-          <p class="article-profil-title">Vous n'avez pas ajouté d'articles. Vos articles apparaîtront ici.</p>
+        @if($lovesArticles->isEmpty())
+          <p class="article-profil-title">Vous n'avez aimer d'article. Vos articles préférer apparaîtront ici.</p>
         @else
-          @foreach($articles as $article)
+          @foreach($lovesArticles as $lovesArticle)
             <!-- CARD ARTICLES -->
             <div class="article-profile-scrollable">
               <div class="article-profil-line">
                 <div class="article-profil-card">
-                  <img src="./img/articles/{{$article->depot}}" class="article-profil-art-img"/>
-                    <a class="poubelle-icon" data-toggle="modal" data-target="#Modal{{$article->id_article}}"></a>
-                  <p class="article-profil-title"> {{$article->titre_article}} </p>
+                  <img src="./img/articles/{{$lovesArticle->depot}}" class="article-profil-art-img"/>
+                    <a class="heart-icon clicked" data-toggle="modal" data-target="#Modal{{$lovesArticle->id_article}}"></a>
+                  <p class="article-profil-title"> {{$lovesArticle->titre_article}} </p>
                 </div>
               </div>
             </div> 
 
             <!-- MODAL-ARTICLE -->
-            <div class="modal fade" id="Modal{{$article->id_article}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal fade" id="Modal{{$lovesArticle->id_article}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -99,15 +99,15 @@
                   </div>
 
                   <div class="titre-modal">
-                    Vous souhaitez supprimer cet article ?
+                    Vous souhaitez ne plus accorder de l'estime à cet article !
                   </div>
 
                   <div class="modal-footer">
                     <button type="button" class="close-modal" data-dismiss="modal">J'annule</button>
-                    <form action="{{ route('mon-compte.delete', ['id' => $article->id_article]) }}" method="POST">
+                    <form action="{{ route('mon-compte.dislikeArticle', ['id' => $lovesArticle->id_article]) }}" method="POST">
                       @csrf
                       @method('DELETE')
-                      <button type="submit" class="valide-modal">Je supprime</button>
+                      <button type="submit" class="valide-modal">Je n'aime plus</button>
                     </form>
                   </div>
                 </div>
@@ -125,24 +125,24 @@
       <!-- ---------------------- Début évènements  ------------------------>
       <div class="base-layout-articles">
         <div class="article-profil">
-          @if($evenements->isEmpty())
+          @if($lovesEvenements->isEmpty())
             <p class="mon-compte-null">Les événements auxquels vous serez conviés apparaîtront ici.</p>
           @else
-            @foreach($evenements as $evenement)
+            @foreach($lovesEvenements as $lovesEvenement)
               <!-- CARD EVENEMENT -->
               <div class="line-profil">
                 <div class="card-evenement-profil">
-                  <img src="./img/evenements/{{$evenement->depot}}" class="img-evenement-profil"/>
-                  <a class="poubelle-icon" data-toggle="modal" data-target="#Modal{{$evenement->id_article}}"></a>
+                  <img src="./img/evenements/{{$lovesEvenement->depot}}" class="img-evenement-profil"/>
+                  <a class="heart-icon clicked" data-toggle="modal" data-target="#Modal{{$lovesEvenement->id_article}}"></a>
                   <div class="card-description-evenement-profil">
-                    <p class="title-evenement-profil"> {{$evenement->nom}}</p>
-                    <p class="date-evenement-profil"> {{$evenement->lieux}}, {{$evenement->date}} </p>
+                    <p class="title-evenement-profil"> {{$lovesEvenement->nom}}</p>
+                    <p class="date-evenement-profil"> {{$lovesEvenement->lieux}}, {{$lovesEvenement->date}} </p>
                   </div>
                 </div>
               </div>
 
               <!-- MODAL-EVENEMENT -->
-              <div class="modal fade" id="Modal{{$evenement->id_article}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+              <div class="modal fade" id="Modal{{$lovesEvenement->id_article}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -152,16 +152,15 @@
                     </div>
 
                     <div class="titre-modal">
-                      Vous souhaitez vous désinscrire de cet évènement ?
-                      <p class="sous-titre-modal-evenement mt-3">Pas de soucis, vous devez avoir vos raisons. Rendez-vous au prochain évènement ! </p>
+                      Vous êtes sur le point de ne plus apprécier l'événement !
                     </div>
 
                     <div class="modal-footer">
                       <button type="button" class="close-modal" data-dismiss="modal">J'annule</button>
-                      <form action="{{ route('mon-compte.delete', ['id' => $article->id_article]) }}" method="POST">
+                      <form action="{{ route('mon-compte.dislikeEvenement', ['id' => $lovesEvenement->code]) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="valide-modal">Je me désinscris</button>
+                        <button type="submit" class="valide-modal">Je n'aime plus</button>
                       </form>
                     </div>
                   </div>

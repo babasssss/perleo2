@@ -24,7 +24,7 @@ class FavorisController extends Controller
         ->select('evenement.*', 'image.*', '_aimer.*') // Sélectionnez les colonnes des trois tables
         ->where('_aimer.id', '=', Auth::user()->id)
         ->get();
-        dd($lovesEvenements , $lovesArticles);
+        // dd($lovesEvenements , $lovesArticles);
 
         
 

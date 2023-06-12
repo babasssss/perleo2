@@ -37,7 +37,8 @@ Route::get('/mon-compte',[MonProfilController::class,'index'])->middleware(['aut
 
 Route::delete('article/{id}', [MonProfilController::class, 'delete'])->middleware(['auth', 'verified'])->name('mon-compte.delete');
 Route::delete('evenementProfil/{id}', [MonProfilController::class, 'deleteEvenement'])->middleware(['auth', 'verified'])->name('mon-compte.deleteEvenement');
-
+Route::delete('dislikeEvenement/{id}', [MonProfilController::class, 'dislikeEvenement'])->middleware(['auth', 'verified'])->name('mon-compte.dislikeEvenement');
+Route::delete('dislikeArticle/{id}', [MonProfilController::class, 'dislikeArticle'])->middleware(['auth', 'verified'])->name('mon-compte.dislikeArticle');
 
 Route::get('/like/{id_article}/{id_user}',[AimerController::class,'index'])->middleware(['auth', 'verified'])->name('like');
 Route::get('/like_event/{code}/{id_user}',[AimerController::class,'indexEvent'])->middleware(['auth', 'verified'])->name('like_event');
