@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AimerController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\DasboardController;
 use App\Http\Controllers\EvenementController;
 use App\Http\Controllers\FavorisController;
@@ -43,8 +44,10 @@ Route::delete('dislikeArticle/{id}', [MonProfilController::class, 'dislikeArticl
 Route::get('/like/{id_article}/{id_user}',[AimerController::class,'index'])->middleware(['auth', 'verified'])->name('like');
 Route::get('/like_event/{code}/{id_user}',[AimerController::class,'indexEvent'])->middleware(['auth', 'verified'])->name('like_event');
 
-Route::get('/evenement/{nom}',[EvenementController::class,'index'])->middleware(['auth', 'verified'])->name('like');
+Route::get('/evenement/{nom}',[EvenementController::class,'index'])->middleware(['auth', 'verified'])->name('evenementName');
 
+Route::get('/ajouter-un-article',[ArticleController::class,'index'])->middleware(['auth', 'verified'])->name('ajouter-un-article');
+Route::post('/ajouter-un-article',[ArticleController::class,'store'])->middleware(['auth', 'verified'])->name('ajouter-un-article.post');
 
 Route::get('/favoris',[FavorisController::class,'index'])->middleware(['auth', 'verified'])->name('favoris');
 

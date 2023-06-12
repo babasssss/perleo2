@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Article extends Model
+class Aimer extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -17,13 +17,9 @@ class Article extends Model
      *
      * @var array<int, string>
      */
-    protected $table = 'article';
+    protected $table = 'etat_article';
     protected $fillable = [
-        'id_article',
-        'titre_article',
-        'contenu_article',
-        'id_categorie',
-        'id',
-        'id_etat_article'
+        'id_etat_article',
+        'nom_etat_article'
     ];
 }
